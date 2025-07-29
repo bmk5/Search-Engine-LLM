@@ -8,7 +8,7 @@ from langsmith import Client
 import os
 from dotenv import load_dotenv
 
-
+# Load the environment variables
 load_dotenv()
 
 # Set the LangSmith (LangChain observability) API key and project
