@@ -8,18 +8,6 @@ from langsmith import Client
 import os
 from dotenv import load_dotenv
 
-# Load the environment variables
-load_dotenv()
-
-# Set the LangSmith (LangChain observability) API key and project
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-os.environ["LANGCHAIN_TRACING_v2"] = "true" 
-os.environ["LANGCHAIN_PROJECT"] = "RAG Document Project"
-
-# Initialize the LangChain tracer linked to a specific project
-client = Client(api_key=os.getenv("LANGCHAIN_API_KEY"))
-
-
 # Initialize a wrapper utility around the Wikipedia API and a query tool that uses the defined Wikipedia API wrapper
 api_wrapper_wiki = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=250) 
 wiki = WikipediaQueryRun(api_wrapper=api_wrapper_wiki)
